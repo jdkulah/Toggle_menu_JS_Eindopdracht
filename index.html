@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Menu</title>
+    <style>
+        body {
+            background-color: #d9d9d9;
+        }
+
+        #menu {
+            display: none;
+            width: 30vw;
+        }
+
+        #menu a {
+            background-color: #d9d9d9;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            display: block;
+            color: black;
+            border: 1px solid #d9d9d9;
+        }
+
+        #menu #red {
+            background-color: red;
+        }
+
+        #menu #orange {
+            background-color: orange;
+        }
+
+        #menu #purple {
+            background-color: purple;
+        }
+
+        #menu #green {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#" id="menuicon"><img src="menu.png" alt="menu" width="100px" onclick="toggle()"></a>
+    <div id="menu">
+        <a href="#home" id="#d9d9d9">Home</a>
+        <a href="#red" id="red">Red</a>
+        <a href="#orange" id="orange">Orange</a>
+        <a href="#purple" id="purple">Purple</a>
+        <a href="#green" id="green">Green</a>
+    </div>
+</body>
+<script>
+    var x = document.getElementById("menu");
+    function toggle() {
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+
+    document.querySelectorAll("#menu a").forEach((elm) => {
+        elm.addEventListener("click", function () {
+            x.style.display = "none";
+            document.querySelector("body").style.backgroundColor = elm.id;
+        });
+    });
+</script>
+
+</html>
